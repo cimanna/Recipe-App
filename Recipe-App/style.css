@@ -62,27 +62,27 @@ button {
   padding: 20% auto;
 }
 .modal {
+  width: 80vw;
+  border: 4px solid rgb(144, 189, 11);
+  margin: 5% auto;
   display: none; 
   position: fixed;
   align-content: center;
-  /* text-align: center;  */
+  text-align: center;
   z-index: 1;
   left: 5%;
   top: 10%;
-  width: 100%;
-  height: 100%;
   overflow: hidden; 
   background-color: white; 
 }
 .modal-content {
-  display: block;
   background-color: white;
-  margin: 5% auto 15% auto; 
+  margin: 5% auto;
   text-align: center;
   padding: 10px;
-  border: 4px solid rgb(144, 189, 11);
-  width: 80vw; 
-  list-style-position: inside; 
+  /* border: 4px solid rgb(144, 189, 11); */
+  /* width: 80vw; */
+  list-style-position: inside;
 }
 .nutrition {
   list-style-type: none;
