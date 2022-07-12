@@ -1,4 +1,6 @@
-
+* {
+  box-sizing: border-box;
+}
 body {
   display: grid;
   font-size: 20px;
@@ -7,6 +9,7 @@ body {
       'a b'
       'c c';
       margin: 10%;
+      width: 80%;
 }
 
 header {
@@ -53,10 +56,10 @@ li {
 }
 button {
   font-size: 20px;
-  height: 50%;
+  /* height: 50%; */
   padding: 20% auto;
 }
-#inputField {
+.inputField {
   font-size: 20px;
   padding: 20% auto;
   margin: 20% auto;
@@ -64,27 +67,29 @@ button {
 
 .modal-container{
   width: 80vw;
-  border: 4px solid rgb(144, 189, 11);
-  margin: 5% auto;
-  display: block; 
-  position: relative;
+  /* border: 4px solid rgb(144, 189, 11); */
+  /* margin: 5% auto; */
+  display: none; 
+  position: fixed;
   justify-items: center;
   text-align: center;
   z-index: 1;
-  left: 5%;
-  top: 10%;
-  overflow: none; 
+  left: 0;
+  top: 0;
+  overflow: auto; 
   background-color: white; 
+  background-color: rgba(229, 47, 47, 0.4);
 }
 .modal-content {
-  display: block;
+  position: relative;
+  background-color: white; 
   text-align: center;
   padding: 10px;
-  /* border: 4px solid rgb(144, 189, 11); */
-  /* width: 80vw; */
+  border: 4px solid rgb(144, 189, 11);
+  width: 80%;
   list-style-position: inside;
 }
-#nutrition {
+.nutrition {
   list-style-type: none;
 }
 
@@ -101,8 +106,30 @@ button {
   text-decoration: none;
   cursor: pointer;
 }
+@media (min-width: 992px) {
+  .hidden-xl {
+    display: none;
+  }
+}
+@media (max-width: 992px) {
+  .lg-60 {
+    width: 60%;
+  }
 
-
+  .lg-40 {
+    width: 40%;
+  }
+}
+@media (max-width: 768px) {
+  .medium-50 {
+    width: 50%;
+  }
+}
+@media (max-width: 576px) {
+  .small-100 {
+    width: 100%;
+  }
+}
 /* @mixin for-phone-only {
   @media (max-width: 599px) { @content; }
 }

@@ -4,7 +4,7 @@ const resultDiv = document.querySelector(".container")
 
 document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
-  let option = document.querySelector("inputField").value;
+  let option = document.querySelector(".inputField").value;
 
   let search = `https://api.edamam.com/api/recipes/v2?q=${option}&app_id=da6b5bfd&app_key=94031ae7cc4322e3ef2c5e273907f2fc&type=public&random=true`;
 
@@ -23,26 +23,28 @@ document.querySelector("form").addEventListener("submit", function (event) {
         console.log(res.hits[i].recipe.label);
         let li = document.createElement("li");
         let textEl = document.createElement("p")
-        textEl.innerText = res.hits[i].recipe.label;
+        textEl.innerText = `${res.hits[i].recipe.label}`;
         textEl.classList.add("name")
         li.appendChild(textEl)
 
         //create div el w/ class 'contain'
-        let container = document.createElement("div")
-        container.classList.add("contain")
+        let recContainer = document.createElement("div")
+        recContainer.classList.add("contain")
         //create img el w/ class 'thum-img'
         let thum = document.createElement("img");
-        thum.classList.add("thum-img");
+        thum.classList = "thum-img";
         thum.src = res.hits[i].recipe.images.SMALL.url;
         //append the recipes and their thumbnails in container
-        container.appendChild(thum);
-        li.appendChild(container)
+        recContain.appendChild(thum);
+        li.appendChild(recContainer)
         unList.appendChild(li);
 
         //add eventList to open modal if thum is clicked
         li.addEventListener("click", function () {
-          let modal = document.querySelector(".modal-container");
+          let modal = document.getElementById("myModal");
           modal.innerHTML = "";
+          
+          modal.style.display = "block";
 
           let modalInfo = `
           <div class="modal-content">
@@ -52,7 +54,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
             <ul id="${res.hits[i].recipe.url}">
             <h2>Health Concerns / Allergies</h2>
             </ul>
-            <ul id="nutrition">
+            <ul class="nutrition">
             <h2>Basic Nutrition Facts</h2> 
               <li>Calories: ${Math.round(res.hits[i].recipe.totalNutrients.ENERC_KCAL.quantity)} ${res.hits[i].recipe.totalNutrients.ENERC_KCAL.unit}</li>
               <li>Servings: ${res.hits[i].recipe.yield}</li>
@@ -71,7 +73,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
 
           //create closing events for modal
-          let span = document.querySelector(".close")[0];
+          let span = document.getElementsByClassName("close")[0];
           //close the modal when the user clicks on 'x' 
           span.onclick = function () {
             modal.style.display = "none";
