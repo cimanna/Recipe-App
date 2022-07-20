@@ -1,0 +1,14 @@
+[
+  {
+    "statment": "go for a run",
+    "price": 0,
+    "access": 10
+  },
+
+  {
+    "statment": "do yoga",
+    "price": 3,
+    "access": 8
+  }
+]
+
